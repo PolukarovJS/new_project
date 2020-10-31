@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .chat__item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .chat__person-avatar {
+            border-radius: 50%;
+        }
+
+        .chat__messages {
+            margin-left: 10px;
+        }
+
+        .chat__message {
+            display: flex;
+            align-items: center;
+            margin-right: 5px;
+        }
+
+        .chat__message-content {
+            border-radius: 5px;
+            padding: 7px;
+            background-color: #ccc;
+            display: block;
+            margin-left: 5px;
+        }
+
+        .chat__item--responder {
+            flex-direction: row-reverse;
+        }
+
+        .chat__item--responder .chat__message {
+            flex-direction: row-reverse;
+        }
+
+        .chat__item--responder .chat__message-content {
+            margin-left: 0;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="messages">
+    <div class="chat__content">
+        <div class="chat__item">
+            <img src="http://placekitten.com/40/50" alt="photo" class="chat__person-avatar">
+            <div class="chat__messages">
+                <div class="chat__message">
+                    <div class="chat__message-time">9:03</div>
+                    <div class="chat__message-content">Hi</div>
+                </div>
+                <div class="chat__message">
+                    <div class="chat__message-time">9:03</div>
+                    <div class="chat__message-content">How are you?</div>
+                </div>
+            </div>
+        </div>
+        <div class="chat__item chat__item--responder">
+            <img src="http://placekitten.com/40/50" alt="photo" class="chat__person-avatar">
+            <div class="chat__messages">
+                <div class="chat__message">
+                    <div class="chat__message-time">9:05</div>
+                    <div class="chat__message-content">Hello</div>
+                </div>
+                <div class="chat__message">
+                    <div class="chat__message-time">9:07</div>
+                    <div class="chat__message-content">I'm fine. Let's have a dinner today.</div>
+                </div>
+                <div class="chat__message">
+                    <div class="chat__message-time">9:07</div>
+                    <div class="chat__message-content">What do you think about it?</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

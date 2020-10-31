@@ -1,0 +1,22 @@
+.message {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.messageTime {
+    margin-left: 5px;
+}
+
+.messageContent {
+    border-radius: 10px;
+    padding: 7px;
+    background-color: #ccc;
+    display: block;
+    margin-left: 5px;
+}
+
+/*==============================*/
+.messageResponder {
+    flex-direction: row-reverse;
+}

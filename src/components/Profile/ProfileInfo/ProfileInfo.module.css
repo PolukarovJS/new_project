@@ -1,0 +1,15 @@
+.divImage img {
+    width: 1000px;
+    background-size: cover;
+    text-align: center;
+    min-height: 460px;
+    background-position: center;
+}
+
+.descriptionBlock {
+    color: black;
+    padding: 10px;
+}
+
+.profileInfoBox {
+}

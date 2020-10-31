@@ -1,21 +1,35 @@
 import React from 'react';
 import s from './Dialogs.module.css';
+import DialogItem from "./DialogItem/DialogItem";
+import Message from "./Message/Message";
 
 const Dialogs = (props) => {
+
+    let dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} avatar={d.avatar}/>);
+    let messagesElements = props.state.messages.map(m => <Message message={m.message} time={m.time} my={m.my}/>);
+    let newMessage = React.createRef();
+    let AddMessage = () => {
+        let text = newMessage.current.value;
+        props.addMessage(text);
+    }
+    let onMessageChange = () => {
+        let text = newMessage.current.value;
+        props.updateNewMessageText(text);
+    }
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <div className={s.dialog + " " + s.active}>Sasha</div>
-                <div className={s.dialog}>Masha</div>
-                <div className={s.dialog}>Pasha</div>
-                <div className={s.dialog}>Glasha</div>
-                <div className={s.dialog}>Kasha</div>
+                {dialogsElements}
             </div>
             <div className={s.messages}>
-                <div className={s.message}>Ok!!!</div>
-                <div className={s.message}>Hi!!!</div>
-                <div className={s.message}>By!!!</div>
-                <div className={s.message}>Sy!!!</div>
+                {messagesElements}
+                <div>
+                    <textarea onChange={onMessageChange} ref={newMessage} value={props.state.newMessageText}/>
+                </div>
+                <div>
+                    <button onClick={AddMessage}>Add post</button>
+                </div>
             </div>
         </div>
     )

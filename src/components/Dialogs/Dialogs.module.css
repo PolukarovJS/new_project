@@ -8,11 +8,11 @@
     padding: 10px;
 }
 
-.dialogsItems .dialog {
-
+.dialog a {
+    text-decoration: none;
 }
 
-.dialogsItems .active {
+a.active {
     color: gold;
 }
 
