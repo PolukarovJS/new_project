@@ -9,7 +9,6 @@ const Dialogs = (props) => {
     let messagesElements = props.state.messages.map(m => <Message message={m.message} time={m.time} my={m.my}/>);
     let newMessage = React.createRef();
     let AddMessage = () => {
-        let text = newMessage.current.value;
         props.dispatch({type: 'ADD-MESSAGE'});
     }
     let onMessageChange = () => {
