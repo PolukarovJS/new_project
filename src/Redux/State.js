@@ -1,7 +1,7 @@
 const ADD_POST ='ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const SEND_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 
 let store = {
     _callSubscriber() {
@@ -34,7 +34,7 @@ let store = {
                 {id: 2, message: 'I\'m fine. Let\'s have a dinner today.', time: '9:35', my: true},
                 {id: 3, message: 'What do you think about it?', time: '9:37', my: true}
             ],
-            newMessageText: 'newMessage'
+            newMessageBody: ""
         },
         sidebar: {
             friends: [
@@ -63,18 +63,28 @@ let store = {
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 4,
-                message: this._state.dialogsPage.newMessageText,
-                time: '10:15',
-                my: true
-            };
-            this._state.dialogsPage.messages.push(newMessage);
-            this._state.dialogsPage.newMessageText = '';
+        } else if (action.type === SEND_MESSAGE) {
+            //let time = action.time;
+            let body = this._state.dialogsPage.newMessageBody;
+            this._state.dialogsPage.newMessageBody = '';
+            let date = new Date();
+            let hours;
+            let minutes;
+            if (date.getHours() < 10){
+                hours = "0" + date.getHours();
+            } else {
+                hours = date.getHours();
+            }
+            if (date.getMinutes() < 10){
+                minutes = "0" + date.getMinutes();
+            } else{
+                minutes = date.getMinutes();
+            }
+            let time = hours + ":" + minutes;
+            this._state.dialogsPage.messages.push({id: 3, message: body, time: time, my: true});
             this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessageText = action.newText;
+        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this._state.dialogsPage.newMessageBody = action.body;
             this._callSubscriber(this._state);
         }
     }
@@ -82,8 +92,8 @@ let store = {
 
 export const addPostActionCreator = () => ({type: ADD_POST}); // Возвращает обЪект
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
-export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text});
+export const addMessageActionCreator = () => ({type: SEND_MESSAGE});
+export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_BODY, body: text});
 
 window.story = store;
 
