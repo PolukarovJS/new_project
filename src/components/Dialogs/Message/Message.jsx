@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Message.module.css';
 
 const Message = (props) => {
-
     if (!props.my) {
         return (
             <div className={s.message}>
