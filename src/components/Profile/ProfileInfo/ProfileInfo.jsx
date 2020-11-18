@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../images/runners-635906_1920.jpg';
+import logo from '../../../assets/images/runners-635906_1920.jpg';
 import s from './ProfileInfo.module.css';
 
 const ProfileInfo = () => {

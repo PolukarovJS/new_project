@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Post.module.css';
 
 const Post = (props) => {
-  //debugger;
   return (
     <div className={s.item}>
       <img src='https://w-dog.ru/wallpapers/16/17/547557012563074/avatar-avatara-nejtiri.jpg' />
