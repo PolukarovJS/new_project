@@ -79,7 +79,7 @@ let mapStateToProps = (state) => {
 }*/
 
 export default connect(mapStateToProps,
-    {
-        follow, unfollow, setUsers, setCurrentPage, setTotalUserCount, toggleIsFetching
-    }
-)(UsersContainer);
+        {
+            follow, unfollow, setUsers, setCurrentPage, setTotalUserCount, toggleIsFetching
+        }
+    )(UsersContainer);
