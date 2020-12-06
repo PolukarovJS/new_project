@@ -23,7 +23,6 @@ class UsersContainer extends React.Component {
             });
     }
 
-    
     onPageChanged = (pageNumber) => {
         this.props.toggleIsFetching(true);
         this.props.setCurrentPage(pageNumber);
