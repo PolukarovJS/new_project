@@ -6,8 +6,7 @@ import s from './ProfileInfo.module.css';
 const ProfileInfo = (props) => {
     if(!props.profile){
         return <Preloader/>
-    }
-    
+    }   
     
     return (
         <div className={s.profileInfoBox}>
@@ -15,8 +14,19 @@ const ProfileInfo = (props) => {
                 <img src={logo} alt='bigImage'/>
             </div>
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large}/>
-                ava + descriptions
+                <img alt='photos.large' src={props.profile.photos.large}/>
+                <div>{props.profile.aboutMe}</div>
+                <div>
+                    <div>{props.profile.contacts.facebook}</div>
+                    <div>{props.profile.contacts.website}</div>
+                    <div>{props.profile.contacts.vk}</div>
+                    <div>{props.profile.contacts.twitter}</div>
+                    <div>{props.profile.contacts.instagram}</div>
+                    <div>{props.profile.contacts.youtube}</div>
+                    <div>{props.profile.contacts.github}</div>
+                    <div>{props.profile.contacts.mainLink}</div>
+                </div>
+                <div></div>
             </div>
         </div>
     )
