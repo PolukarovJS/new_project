@@ -10,13 +10,13 @@ const instance = axios.create({
 
 export const userAPI = {
     getUsers (currentPage, pageSize) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`, {}).then(response => response.data);
+        return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data);
     },
-    postFollow (userId) {
-        return instance.post(`follow/${userId}`).then(response => response.data);
+    follow (userId) {
+        return instance.post(`follow/${userId}`).then(response => response.data);;
     },
-    deleteFollow (userId) {
-        return instance.delete(`follow/${userId}`, {}).then(response => response.data);
+    unfollow (userId) {
+        return instance.delete(`follow/${userId}`).then(response => response.data);;
     }
 }
 
