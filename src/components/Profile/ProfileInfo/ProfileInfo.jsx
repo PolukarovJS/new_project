@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../../assets/images/runners-635906_1920.jpg';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
     if(!props.profile){
@@ -10,11 +11,12 @@ const ProfileInfo = (props) => {
     
     return (
         <div className={s.profileInfoBox}>
-            <div className={s.divImage}>
+            {/*<div className={s.divImage}>
                 <img src={logo} alt='bigImage'/>
-            </div>
+            </div>*/}
             <div className={s.descriptionBlock}>
                 <img alt='photos.large' src={props.profile.photos.large}/>
+                <ProfileStatus status={"Hello my friends!!!"}/>
                 <div>{props.profile.aboutMe}</div>
                 <div>
                     <div>{props.profile.contacts.facebook}</div>
