@@ -1,12 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
-import { maxLengthCreator, required } from "../../utils/validators/validators";
+import { required } from "../../utils/validators/validators";
 import { Input } from "../common/FormsControls/FormsControls";
 import { login } from "../../Redux/auth-reducer";
 import { Redirect } from "react-router-dom";
-
-const maxLength20 = maxLengthCreator(20);
+import styles from "./../common/FormsControls/FormsControls.module.css";
 
 const LoginForm = (props) => {
    return (
@@ -29,6 +28,7 @@ const LoginForm = (props) => {
          <div>
             <button>Login</button>
          </div>
+         <div className={styles.formSummaryError}>{props.error}</div>
       </form>
    );
 };
