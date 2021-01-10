@@ -1,37 +1,35 @@
-import React from 'react';
-import logo from '../../../assets/images/runners-635906_1920.jpg';
-import Preloader from '../../common/Preloader/Preloader';
-import s from './ProfileInfo.module.css';
-import ProfileStatus from "./ProfileStatus";
+import React from "react";
+import logo from "../../../assets/images/runners-635906_1920.jpg";
+import Preloader from "../../common/Preloader/Preloader";
+import s from "./ProfileInfo.module.css";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+//import ProfileStatus from "./ProfileStatus";
 
-const ProfileInfo = (props) => {
-    if(!props.profile){
-        return <Preloader/>
-    }   
-    
-    return (
-        <div className={s.profileInfoBox}>
-            {/*<div className={s.divImage}>
-                <img src={logo} alt='bigImage'/>
-            </div>*/}
-            <div className={s.descriptionBlock}>
-                <img alt='photos.large' src={props.profile.photos.large}/>
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
-                <div>{props.profile.aboutMe}</div>
-                <div>
-                    <div>{props.profile.contacts.facebook}</div>
-                    <div>{props.profile.contacts.website}</div>
-                    <div>{props.profile.contacts.vk}</div>
-                    <div>{props.profile.contacts.twitter}</div>
-                    <div>{props.profile.contacts.instagram}</div>
-                    <div>{props.profile.contacts.youtube}</div>
-                    <div>{props.profile.contacts.github}</div>
-                    <div>{props.profile.contacts.mainLink}</div>
-                </div>
-                <div></div>
+const ProfileInfo = ({ profile, status, updateStatus }) => {
+   if (!props.profile) {
+      return <Preloader />;
+   }
+
+   return (
+      <div className={s.profileInfoBox}>
+         <div className={s.descriptionBlock}>
+            <img alt="photos.large" src={profile.photos.large} />
+            <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+            <div>{props.profile.aboutMe}</div>
+            <div>
+               <div>{profile.contacts.facebook}</div>
+               <div>{profile.contacts.website}</div>
+               <div>{profile.contacts.vk}</div>
+               <div>{profile.contacts.twitter}</div>
+               <div>{profile.contacts.instagram}</div>
+               <div>{profile.contacts.youtube}</div>
+               <div>{profile.contacts.github}</div>
+               <div>{profile.contacts.mainLink}</div>
             </div>
-        </div>
-    )
-}
+            <div></div>
+         </div>
+      </div>
+   );
+};
 
 export default ProfileInfo;

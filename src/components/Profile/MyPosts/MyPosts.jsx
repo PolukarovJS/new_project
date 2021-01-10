@@ -27,10 +27,16 @@ const AddNewPostForm = (props) => {
 
 const MyPostReduxForm = reduxForm({ form: "ProfileAddNewPostForm" })(AddNewPostForm);
 
+//window.props = [];
+
 const MyPosts = (props) => {
-   let postsElements = props.posts.map((p) => (
-      <Post message={p.message} likesCount={p.likesCount} key={p.id} />
-   ));
+   //debugger;
+   //window.props.push(props);
+   //console.log("Rerender yo");
+   //console.log(props);
+   let postsElements = [...props.posts]
+      .reverse()
+      .map((p) => <Post message={p.message} likesCount={p.likesCount} key={p.id} />);
    let addPost = (values) => {
       props.addPost(values.newPostText);
    };
