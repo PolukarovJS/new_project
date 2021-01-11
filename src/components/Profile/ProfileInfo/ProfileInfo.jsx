@@ -6,7 +6,7 @@ import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 //import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = ({ profile, status, updateStatus }) => {
-   if (!props.profile) {
+   if (!profile) {
       return <Preloader />;
    }
 
@@ -15,7 +15,7 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
          <div className={s.descriptionBlock}>
             <img alt="photos.large" src={profile.photos.large} />
             <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
-            <div>{props.profile.aboutMe}</div>
+            <div>{profile.aboutMe}</div>
             <div>
                <div>{profile.contacts.facebook}</div>
                <div>{profile.contacts.website}</div>
