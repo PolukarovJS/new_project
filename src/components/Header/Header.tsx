@@ -1,9 +1,15 @@
-import React from "react";
+import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/images/SportLife1.png";
 import s from "./Header.module.css";
 
-const Header = (props) => {
+type PropsType = {
+   isAuth: boolean
+   login: () => void
+   logout: () => void
+}
+
+const Header:FC<PropsType> = (props) => {
    return (
       <header className={s.header}>
          <img src={logo} alt="logo" />

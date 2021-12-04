@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import logo from "../../../assets/images/runners-635906_1920.jpg";
-import Preloader from "../../common/Preloader/Preloader";
-import s from "./ProfileInfo.module.css";
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
-import userPhoto from "../../../assets/images/user.png";
-import ProfileDataForm from "./ProfileDataForm";
-//import ProfileStatus from "./ProfileStatus";
+import React, { useState } from 'react';
+import Preloader from '../../common/Preloader/Preloader';
+import s from './ProfileInfo.module.css';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
+import userPhoto from '../../../assets/images/user.png';
+import ProfileDataForm from './ProfileDataForm';
 
 const ProfileInfo = ({ savePhoto, profile, status, updateStatus, isOwner, saveProfile }) => {
    let [editMode, setEditMode] = useState(false);
@@ -37,7 +35,7 @@ const ProfileInfo = ({ savePhoto, profile, status, updateStatus, isOwner, savePr
                className={s.mainPhoto}
             />
             {isOwner && (
-               <input type={"file"} accept=".jpg, .jpeg, .png" onChange={onMainPhotoSelected} />
+               <input type={'file'} accept=".jpg, .jpeg, .png" onChange={onMainPhotoSelected} />
             )}
             {editMode ? (
                <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
@@ -70,7 +68,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
          </div>
          <div>
             <b>Looking for a job: </b>
-            {profile.lookingForAJob ? "yes" : "no"}
+            {profile.lookingForAJob ? 'yes' : 'no'}
          </div>
          {profile.lookingForAJob && (
             <div>
@@ -82,7 +80,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
             <b>About me</b>:{profile.aboutMe}
          </div>
          <div>
-            <b>Contacts</b>:{" "}
+            <b>Contacts</b>:{' '}
             {Object.keys(profile.contacts).map((key) => {
                return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />;
             })}

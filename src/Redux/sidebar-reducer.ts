@@ -1,14 +1,21 @@
 const ADD_FRIEND = 'ADD-FRIEND';
 
+type FriendType = {
+    id: number
+    name: string
+    avatar: string
+}
 let initialState = {
     friends: [
         {id: 1, name: 'Andrew', avatar: "http://placekitten.com/40/20"},
         {id: 2, name: 'Sasha', avatar: "http://placekitten.com/40/40"},
         {id: 3, name: 'Sveta', avatar: "http://placekitten.com/40/30"}
-    ]
+    ] as Array<FriendType>
 };
 
-const sidebarReducer = (state = initialState, action) => {
+export type InitialStatetype = typeof initialState
+
+const sidebarReducer = (state = initialState, action:any): InitialStatetype => {
     switch (action.type) {
         case ADD_FRIEND:
             let newFriend = {
@@ -23,6 +30,9 @@ const sidebarReducer = (state = initialState, action) => {
     }
 }
 
-export const addFriendCreator = () => ({type: ADD_FRIEND});
+type AddFriendCreatorActionType = {
+    type: typeof ADD_FRIEND
+}
+export const addFriendCreator = ():AddFriendCreatorActionType => ({type: ADD_FRIEND});
 
 export default sidebarReducer;
